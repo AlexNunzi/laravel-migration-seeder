@@ -11,7 +11,7 @@ class PageController extends Controller
     public function index() {
 
         $data = [
-            'trips' => Trip::all()
+            'trips' => Trip::whereDate('departure_time', date('Y-m-d'))->get()
         ];
 
         return view('home', $data);
